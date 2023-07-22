@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Skills Практикум
+{% endblock %}
+
+{% block content %}
+    
+    {% if request.user.is_authenticated %}
+        <h2 style="text-align: center; margin: 5px;">Добро пожаловать {{ user.username }}!</h2>
+
+        <a href="{% url 'courses' %}">
+            <button type="button" class="btn btn-dark col-4 offset-md-4 mt-3">Перейти к курсам</button>
+        </a>
+    {% else %}
+        <h2 style="text-align: center; margin: 5px;">Добро пожаловать!</h2>
+        <a href="{% url 'register' %}">
+            <button type="button" class="btn btn-dark col-4 offset-md-4 mt-3">Начать учиться</button>
+        </a>
+    {% endif %}
+
+
+{% endblock %}
